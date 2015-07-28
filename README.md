@@ -79,9 +79,29 @@ Basta apenas informar o diretório dos arquivos (opcional) e o nome do mesmo ou 
       ));  
   ?>
   </pre></code>
-
+  
+######OU
+  <pre><code>
+  <?php
+    $jscode = array(
+      '$(document).ready(function(){
+        $("#learn").click(function() {
+          alert("Yeap! Load assets Class Work\'s.");
+        });
+      });'
+      ,
+      '$(document).ready(function(){
+        $(".details").click(function() {
+          alert("Yeap! JSCodes Work\'s.");
+        });
+      });'
+    );
+    echo $load->JSCodes($jscode);  
+  ?>
+  </pre></code>
+  
 *Este projeto possui uma pasta chamada 'exemple' para melhor aprendizado sobre a classe.*
 
 ##Criador
 Marcelo Garbin  
-link:   <a href="https://bitbucket.org/marcelogarbin/load_assets" target="_blank">https://bitbucket.org/marcelogarbin/load_assets</a></li>
+link: [https://github.com/marcelogarbin/Load_assets](https://github.com/marcelogarbin/Load_assets)
