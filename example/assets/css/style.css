@@ -1,0 +1,17 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.sobre{
+	max-width: 400px !important;
+	padding: 15px;
+	border: 1px solid #DDD;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.sobre hr{
+	border: 1px solid #789BE9;
+}
