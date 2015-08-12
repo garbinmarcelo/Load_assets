@@ -6,7 +6,7 @@
  * Basta apenas informar local dos arquivos(opcional) e o nome do mesmo, esta classe gera código HTML(link/script) para a chamada dos arquivos. 
  * 
  * @author Marcelo Garbin <marcelo@sistemasplanejados.com.br>
- * @version 1.0
+ * @version 1.1
  * @link   https://bitbucket.org/marcelogarbin/load_assets
  * 
  */
