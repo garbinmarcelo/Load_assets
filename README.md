@@ -80,5 +80,5 @@ Basta apenas informar o diretório dos arquivos (opcional) e o nome do mesmo ou 
 
 ##Criador
 Marcelo Garbin  
-Versão: 1.0  
-Data: 28/07/2015
+Versão: 1.1  
+Data: 11/08/2015

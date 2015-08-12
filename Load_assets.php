@@ -45,21 +45,28 @@ class Load_assets{
 	*
 	*/
 	public function CSSLinks($links = NULL){
+		// Faz a limpeza do array
+		$links = array_filter($links);
 		if(isset($links) && is_array($links)){
-			$html = "";
-				for ($i = 0; $i < count($links); $i++){
-					// Verifica se a string no array possui cabeçalho http/https
-					// Se tiver cabeçalho o caminho do diretorio é removido
-					$cabecalho = substr($links[$i], 0, strripos($links[$i], ':'));
-					if($cabecalho === 'http' || $cabecalho === 'https'){
-						$html .= "<link rel='stylesheet' type='text/css' href='" . $links[$i] . ".css' />";
-					}else{
-						$html .= "<link rel='stylesheet' type='text/css' href='" . $this->pathCSS . $links[$i] . ".css' />";
+			if(count($links) > 0){
+				$html  = "";
+				$count = 0;
+					foreach($links as $key => $value){
+						// Verifica se a string no array possui cabeçalho http/https
+						// Se tiver cabeçalho o caminho do diretorio é removido
+						$cabecalho = substr($value, 0, strripos($value, ':'));
+						if($cabecalho === 'http' || $cabecalho === 'https'){
+							$html .= "<link rel='stylesheet' type='text/css' href='" . $value . ".css' />";
+						}else{
+							$html .= "<link rel='stylesheet' type='text/css' href='" . $this->pathCSS . $value . ".css' />";
+						}					
+						$html .= ($count >= 0) ? "\n\t" : "\t";
+						$count++;
 					}
-					$html .= ($i === 0) ? "\n\t" : "\t";
-				}
-			$html .= "\n";
-			return $html;
+				return $html;
+			}else{
+				return NULL;
+			}
 		}else{
 			return "\nErro ao Carregar Arquivos .CSS (Verificar Parâmetro).\n";
 		}
@@ -70,21 +77,28 @@ class Load_assets{
 	*
 	*/
 	public function JSLinks($links = NULL){
+		// Faz a limpeza do array
+		$links = array_filter($links);
 		if(isset($links) && is_array($links)){
-			$html = "";
-			for ($i = 0; $i < count($links); $i++){
-				// Verifica se a string no array possui cabeçalho http/https
-				// Se tiver cabeçalho o caminho do diretorio é removido
-				$cabecalho = substr($links[$i], 0, strripos($links[$i], ':'));
-				if($cabecalho === 'http' || $cabecalho === 'https'){
-					$html .= "<script src='" . $links[$i] . ".js'></script>";
-				}else{
-					$html .= "<script src='" . $this->pathJS . $links[$i] . ".js'></script>";
-				}
-				$html .= ($i === 0) ? "\n\t" : "\t";
+			if(count($links) > 0){
+				$html  = "";
+				$count = 0;
+					foreach($links as $key => $value){
+						// Verifica se a string no array possui cabeçalho http/https
+						// Se tiver cabeçalho o caminho do diretorio é removido
+						$cabecalho = substr($value, 0, strripos($value, ':'));
+						if($cabecalho === 'http' || $cabecalho === 'https'){
+						$html .= "<script src='" . $value . ".js'></script>";
+						}else{
+							$html .= "<script src='" . $this->pathJS . $value . ".js'></script>";
+						}				
+						$html .= ($count >= 0) ? "\n\t" : "\t";
+						$count++;
+					}
+				return $html;
+			}else{
+				return NULL;
 			}
-			$html .= "\n";
-			return $html;
 		}else{
 			return "\nErro ao Carregar Arquivos .JS (Verificar Parâmetro).\n";
 		}
@@ -95,14 +109,21 @@ class Load_assets{
 	*
 	*/
 	public function JSCodes($codes = NULL){
+		// Faz a limpeza do array
+		$codes = array_filter($codes);
 		if(isset($codes) && is_array($codes)){
-			$html = "";
-			for ($i = 0; $i < count($codes); $i++){
-				$html .= "<script>\n\t\t" . $codes[$i] . "\n\t</script>";
-				$html .= ($i === 0) ? "\n\t" : "\t";
+			if(count($codes) > 0){
+				$html  = "";
+				$count = 0;
+				foreach($codes as $key => $value){
+					$html .= "<script>\n\t\t" . $value . "\n\t</script>";
+					$html .= ($count >= 0) ? "\n\t" : "\t";
+					$count++;
+				}
+				return $html;
+			}else{
+				return NULL;
 			}
-			$html .= "\n";
-			return $html;
 		}else{
 			return "\nErro ao Carregar Código Javascript (Verificar Parâmetro).\n";
 		}
